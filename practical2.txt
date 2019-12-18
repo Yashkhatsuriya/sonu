@@ -1,0 +1,206 @@
+program 1:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Practical2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            
+            String dup;
+            int n,flag=0;
+            dup = "";
+            int count = 1;
+
+            Console.Write("Enter number Of Strings You want to enter : ");
+            n = Int32.Parse(Console.ReadLine());
+            Console.WriteLine(n);
+            string[] strarray = new string[n];
+          
+
+            for(int i =0; i<n; i++)
+            {
+                Console.WriteLine("Enter String " + i);
+                strarray[i] = Console.ReadLine();
+            }
+            
+            for(int i=1;i<n; i++)
+            {
+                if (strarray[0] == strarray[i])
+                { 
+                    dup = strarray[i];
+                    flag = 1;
+                    Console.WriteLine("Found Duplicate String : " + dup);
+                    count++;
+                }
+                else
+                { 
+                    //dup = "";
+                    flag = 0;
+                }
+
+            }
+            if(flag==0)
+                Console.WriteLine("No Duplicate Strings Found");
+            else
+            { 
+                //Console.WriteLine("Found Duplicate String : " + dup);
+                Console.WriteLine("Number Of Duplicate Strings = " + count);
+            }
+            Console.ReadLine();
+        }
+    }
+}
+
+program 2:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Practical2_2
+{
+    class Area
+    {
+        double pi = 3.14;
+        public double area(double rad)
+        {
+            return pi * rad * rad;
+        }
+        public double area(double n, double breadth, double height)
+        {
+            return n * breadth * height;
+        }
+        public double area(double length, double breadth)
+        {
+            return  breadth * length;
+        }
+        public double area(int length)
+        {
+            return length * length;
+        }
+    }
+    class Calculate
+    {
+        static void Main(string[] args)
+        {
+            Area a1 = new Area();
+            string shape = "";
+            int ch = 0;
+            double ans;
+            Console.WriteLine("1. Circle ");
+            Console.WriteLine("2. Triangle ");
+            Console.WriteLine("3. Rectangle ");
+            Console.WriteLine("4. Square ");
+            Console.WriteLine("Enter the choice for which you want to Calculate Area: ");
+            ch = Int32.Parse(Console.ReadLine());
+
+            //shape = 
+
+            //if(shape=="")
+
+
+            switch(ch)
+            {
+                case 1:
+                    Console.WriteLine("Enter Radius Of Circle : ");
+                    double r = Int32.Parse(Console.ReadLine());
+                    ans = a1.area(r);
+                    Console.WriteLine("Area Of Circle Is : " + ans);
+                    break;
+
+                case 2:
+                    Console.Write("Enter Breadth Of Triangle : ");
+                    double b = Int32.Parse(Console.ReadLine());
+                    Console.Write("Enter Height Of Triangle : ");
+                    double h = Int32.Parse(Console.ReadLine());
+                    ans = a1.area(0.5,b, h);
+                    Console.WriteLine("Area Of Triangle Is : " + ans);
+                    break;
+
+                case 3:
+                    Console.Write("Enter Length Of Rectangle : ");
+                    double l = Int32.Parse(Console.ReadLine());
+                    Console.Write("Enter Height Of Rectangle : ");
+                    double br = Int32.Parse(Console.ReadLine());
+                    ans = a1.area(l, br);
+                    Console.WriteLine("Area Of Rectangle Is : " + ans);
+                    break;
+
+                case 4:
+                    Console.Write("Enter Length Of Square : ");
+                    int le = Int32.Parse(Console.ReadLine());
+                    ans = a1.area(le);
+                    Console.WriteLine("Area Of Square Is : " + ans);
+                    break;
+
+            }
+
+            Console.ReadLine();
+
+        }
+    }
+}
+
+program 3:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Practical2_3
+{
+    public class Calculate
+    {
+        public void getMinMax()
+        {
+            Console.Write("Enter The Number Of arguments You Want To Pass : ");
+            int n = Int32.Parse(Console.ReadLine());
+            int[] arr = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write("Enter element " + i + " : ");
+                arr[i] = Int32.Parse(Console.ReadLine());
+            }
+            int min = arr[0], max = arr[0];
+            for (int i = 0; i < n; i++)
+            {
+                if (arr[0] < arr[i])
+                    max = arr[i];
+               
+
+            }
+            for (int i = 0; i < n; i++)
+            {
+                if (arr[0] > arr[i])
+                    min = arr[i];
+                
+            }
+            Console.WriteLine("Minimum value Is : " + min);
+            Console.WriteLine("Maximum value Is : " + max);
+        }
+    }
+
+    class Program
+    {
+        
+        static void Main(string[] args)
+        {
+            Calculate c1 = new Calculate(); 
+            c1.getMinMax();
+            Console.ReadLine();
+            
+        }
+    }
+}
+
