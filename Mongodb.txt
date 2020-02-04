@@ -1,0 +1,83 @@
+MongoDB Enterprise > db.createCollection("Books")
+{ "ok" : 1 }
+
+MongoDB Enterprise > db.Books.insert({"ID":"1","Title":"C language","Author":"BalaGuru","Publisher":"SH Publications","Pub_Year":2000})
+WriteResult({ "nInserted" : 1 })
+MongoDB Enterprise > db.Books.insert({"ID":"2","Title":"C++ language","Author":"Narayan Joshi","Publisher":"DDU","Pub_Year":2005})
+WriteResult({ "nInserted" : 1 })
+MongoDB Enterprise > db.Books.insert({"ID":"3","Title":"ADBMS","Author":"Ajay Roy","Publisher":"DDU","Pub_Year":2010})
+WriteResult({ "nInserted" : 1 })
+MongoDB Enterprise > db.Books.find();
+{ "_id" : ObjectId("5e38f6b6f23c5df69bc65723"), "ID" : "1", "Title" : "C language", "Author" : "BalaGuru", "Publisher" : "SH Publications", "Pub_Year" : 2000 }
+{ "_id" : ObjectId("5e38f6f1f23c5df69bc65724"), "ID" : "2", "Title" : "C++ language", "Author" : "Narayan Joshi", "Publisher" : "DDU", "Pub_Year" : 2005 }
+{ "_id" : ObjectId("5e38f7b5f23c5df69bc65725"), "ID" : "3", "Title" : "ADBMS", "Author" : "Ajay Roy", "Publisher" : "DDU", "Pub_Year" : 2010 }
+MongoDB Enterprise > db.Books.find()
+{ "_id" : ObjectId("5e38f6b6f23c5df69bc65723"), "ID" : "1", "Title" : "C language", "Author" : "BalaGuru", "Publisher" : "SH Publications", "Pub_Year" : 2000 }
+{ "_id" : ObjectId("5e38f6f1f23c5df69bc65724"), "ID" : "2", "Title" : "C++ language", "Author" : "Narayan Joshi", "Publisher" : "DDU", "Pub_Year" : 2005 }
+{ "_id" : ObjectId("5e38f7b5f23c5df69bc65725"), "ID" : "3", "Title" : "ADBMS", "Author" : "Ajay Roy", "Publisher" : "DDU", "Pub_Year" : 2010 }
+MongoDB Enterprise > db.Books.find({"Author":"BalaGuru"})
+{ "_id" : ObjectId("5e38f6b6f23c5df69bc65723"), "ID" : "1", "Title" : "C language", "Author" : "BalaGuru", "Publisher" : "SH Publications", "Pub_Year" : 2000 }
+MongoDB Enterprise > db.Books.find({"Pub_Year":2000})
+{ "_id" : ObjectId("5e38f6b6f23c5df69bc65723"), "ID" : "1", "Title" : "C language", "Author" : "BalaGuru", "Publisher" : "SH Publications", "Pub_Year" : 2000 }
+MongoDB Enterprise > db.Books.find({"Pub_Year":2005})
+{ "_id" : ObjectId("5e38f6f1f23c5df69bc65724"), "ID" : "2", "Title" : "C++ language", "Author" : "Narayan Joshi", "Publisher" : "DDU", "Pub_Year" : 2005 }
+MongoDB Enterprise > db.Books.find({"Title":"C Language"})
+MongoDB Enterprise > db.Books.find({"Title":"C language"})
+{ "_id" : ObjectId("5e38f6b6f23c5df69bc65723"), "ID" : "1", "Title" : "C language", "Author" : "BalaGuru", "Publisher" : "SH Publications", "Pub_Year" : 2000 }
+MongoDB Enterprise > db.Books.find({$and : [{"Author":"BalaGuru"},{"Publisher":"DDU"}]})
+MongoDB Enterprise > db.Books.find({$and : [{"Author":"BalaGuru"},{"Publisher":"SH Publications"}]})
+{ "_id" : ObjectId("5e38f6b6f23c5df69bc65723"), "ID" : "1", "Title" : "C language", "Author" : "BalaGuru", "Publisher" : "SH Publications", "Pub_Year" : 2000 }
+MongoDB Enterprise > db.Books.find({$or : [{"Author":"BalaGuru"},{"Publisher":"DDU"}]})
+{ "_id" : ObjectId("5e38f6b6f23c5df69bc65723"), "ID" : "1", "Title" : "C language", "Author" : "BalaGuru", "Publisher" : "SH Publications", "Pub_Year" : 2000 }
+{ "_id" : ObjectId("5e38f6f1f23c5df69bc65724"), "ID" : "2", "Title" : "C++ language", "Author" : "Narayan Joshi", "Publisher" : "DDU", "Pub_Year" : 2005 }
+{ "_id" : ObjectId("5e38f7b5f23c5df69bc65725"), "ID" : "3", "Title" : "ADBMS", "Author" : "Ajay Roy", "Publisher" : "DDU", "Pub_Year" : 2010 }
+MongoDB Enterprise > db.Books.find().pretty()
+{
+        "_id" : ObjectId("5e38f6b6f23c5df69bc65723"),
+        "ID" : "1",
+        "Title" : "C language",
+        "Author" : "BalaGuru",
+        "Publisher" : "SH Publications",
+        "Pub_Year" : 2000
+}
+{
+        "_id" : ObjectId("5e38f6f1f23c5df69bc65724"),
+        "ID" : "2",
+        "Title" : "C++ language",
+        "Author" : "Narayan Joshi",
+        "Publisher" : "DDU",
+        "Pub_Year" : 2005
+}
+{
+        "_id" : ObjectId("5e38f7b5f23c5df69bc65725"),
+        "ID" : "3",
+        "Title" : "ADBMS",
+        "Author" : "Ajay Roy",
+        "Publisher" : "DDU",
+        "Pub_Year" : 2010
+}
+MongoDB Enterprise > db.Books.find({$or : [{"Author":"BalaGuru"},{"Publisher":"DDU"}]}).pretty()
+{
+        "_id" : ObjectId("5e38f6b6f23c5df69bc65723"),
+        "ID" : "1",
+        "Title" : "C language",
+        "Author" : "BalaGuru",
+        "Publisher" : "SH Publications",
+        "Pub_Year" : 2000
+}
+{
+        "_id" : ObjectId("5e38f6f1f23c5df69bc65724"),
+        "ID" : "2",
+        "Title" : "C++ language",
+        "Author" : "Narayan Joshi",
+        "Publisher" : "DDU",
+        "Pub_Year" : 2005
+}
+{
+        "_id" : ObjectId("5e38f7b5f23c5df69bc65725"),
+        "ID" : "3",
+        "Title" : "ADBMS",
+        "Author" : "Ajay Roy",
+        "Publisher" : "DDU",
+        "Pub_Year" : 2010
+}
